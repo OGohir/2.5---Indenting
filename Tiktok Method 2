@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+/**
+* Write a description of class TikTok here.
+*
+*/
+
+public class TikTok
+{
+    private String handle;
+    private TikTokServer server;
+    
+    /**
+    * Constructor for objects of class TikTok
+    */
+   
+    public TikTok(String myHandle)
+    {
+        handle = myHandle;
+        server = new TikTokServer();
+    }
+    
+    public void displayNotifications()
+    {
+        Notification[] notifications;
+        notifications = server.getNotifications();
+        
+    for (Notification n : notifications)
+    {
+        if (n.isNew())
+            n.display();
+    }
+    }
+    
+    /**
+    * This method applies a filter to a video.
+    */
+   
+    public Video applyFilter(Video myVideo, int filterNumber)
+    {
+        return FilterLibrary.processVideo(myVideo, filterNumber);
+    }
+}
+
+/**
+ * (dummy code so that TikTok compiles)
+ */
+public class FilterLibrary
+{
+    public static Video processVideo(Video theVideo, int filter)
+    {
+        return null;
+    }
+}
+
+/**
+ * (dummy code so that TikTok compiles)
+ */
+public class Video
+{
+}
+
+
